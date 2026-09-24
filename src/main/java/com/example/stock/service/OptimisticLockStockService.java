@@ -15,7 +15,7 @@ public class OptimisticLockStockService {
     }
 
     @Transactional
-    public synchronized void decrease(Long id, Long quantity) {
+    public void decrease(Long id, Long quantity) {
         Stock stock = stockRepository.findByIdWithOptimisticLock(id);
 
         stock.decrease(quantity);
